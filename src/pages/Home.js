@@ -1,8 +1,8 @@
 import React from "react"
-
+import Intro from "../components/Intro"
 const Home = () => {
     return (
-        <h1>Yahoo</h1>
+        <Intro />
     )
 }
 
