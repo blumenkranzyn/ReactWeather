@@ -1,3 +1,5 @@
 import Intro from "./Intro"
 import Dashboard from "./Dashboard"
-export { Intro, Dashboard }
+import Header from "./Header"
+
+export { Intro, Dashboard, Header }

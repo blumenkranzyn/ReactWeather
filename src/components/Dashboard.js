@@ -1,14 +1,12 @@
 import React from "react"
-import { Flip } from 'react-reveal';
+import { Header } from '../components';
 
 
 const Dashboard = () => {
 
-
-
     return (
         <div id="section-home" className="dashboard">
-
+            <Header />
         </div>
     )
 }
