@@ -1,15 +1,43 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-$color: #f94;
-
+$mainColor: #f94;
+$secondaryColor: #2e2e2e;
+button {
+    background: none;
+    border: 0;
+    outline: none;
+    color: #fff;
+    &:focus {
+        outline: none;
+    }
+}
+@mixin full-screen {
+  width: 100wh;
+  height: 100vh;
+}
+.dashboard {
+    @include full-screen();
+    background: $mainColor;
+}
 .intro {
+    @include full-screen();
     background-image: url(../assets/bg-intro.jpg);
-    width: 100wh;
-    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    z-index: 1;
+    .bounce {
+        position: absolute;
+        bottom: 50px;
+        font-size: 30px;
+        animation: bounce 1.5s ease-out infinite;
+    }
+    > p {
+       color:  $mainColor;
+    }
     &::after {
         content: "";
         background: rgba(29, 83, 104, 0.7);
@@ -18,6 +46,18 @@ $color: #f94;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 1;
+        z-index: -1;
     }
 }
+    
+    @keyframes bounce {
+        25% {
+          transform: translateY(100%)  ;
+        }
+        50% {
+          transform: translateY(50%)  ;
+        }
+        100% {
+          transform: translateY(0%) ;
+        }
+      }

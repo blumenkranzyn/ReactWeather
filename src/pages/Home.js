@@ -1,8 +1,11 @@
 import React from "react"
-import Intro from "../components/Intro"
+import { Intro, Dashboard } from "../components"
 const Home = () => {
     return (
-        <Intro />
+        <>
+            <Intro />
+            <Dashboard />
+        </>
     )
 }
 
