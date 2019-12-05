@@ -11,6 +11,16 @@ $textColor: #fff;
   width: 100wh;
   height: 100vh;
 }
+@mixin after-opacity($color){
+  content: "";
+  background: $color ;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
 
 /*CONTEUDO*/
 body,
@@ -46,14 +56,15 @@ button {
     font-size: 30px;
     animation: bounce 1.5s ease-out infinite;
   }
-  > h1 {
+
+   h1 {
     font-size: 40px;
   }
-  > h3 {
+  h3 {
     font-size: 100px;
     text-transform: uppercase;
   }
-  > h5 {
+   h5 {
     font-size: 60px;
   }
   > .ocean {
@@ -85,25 +96,22 @@ button {
     }
   }
   &::after {
-    content: "";
-    background: rgba(52, 152, 219, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+   @include after-opacity(rgba(52, 152, 219, 0.7))
   }
 }
 
 .dashboard {
   @include full-screen();
-  background: $mainColor;
   z-index: 40;
   > .header {
+    position: sticky;
     min-height: 200px;
-    background: $secondaryColor;
+    background: url(../assets/bg-weather.jpg) bottom center no-repeat $secondaryColor;
+    background-size: cover;
     color: $textColor;
+    &::after {
+      @include after-opacity(rgba(4, 9, 12, 0.7))
+    }
   }
 }
 
