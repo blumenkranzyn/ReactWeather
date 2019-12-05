@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Flip } from 'react-reveal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
@@ -11,22 +11,31 @@ const Intro = () => {
     }
 
     return (
-        <div className="intro">
-            <Flip left>
-                <p >Teste 1</p>
-            </Flip>
-            <Flip delay={400} right>
-                <p>Teste 2</p>
-            </Flip>
-            <Flip delay={800} bottom>
-                <p>Teste 3</p>
-            </Flip>
+        <Fragment>
+
+            
+            <div className="intro">
+                <Flip bottom>
+                    <h1>Seja Bem Vindo!</h1>
+                </Flip>
+                <Flip delay={600} bottom>
+                    <h3>A Previsão do Tempo</h3>
+                </Flip>
+                <Flip delay={1300} bottom>
+                    <h5>Da sua cidade você encontra aqui!</h5>
+                </Flip>
 
 
-            <button onClick={(e) => handleClick(e)} className="bounce" >
-                <FontAwesomeIcon icon={faAngleDown} />
-            </button>
-        </div>
+                <button onClick={(e) => handleClick(e)} className="bounce" >
+                    <FontAwesomeIcon icon={faAngleDown} />
+                </button>
+                <div class="ocean">
+                <div class="wave"></div>
+                <div class="wave"></div>
+                <div class="wave"></div>
+            </div>
+            </div>
+        </Fragment>
     )
 }
 

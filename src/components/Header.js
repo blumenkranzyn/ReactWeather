@@ -1,14 +1,11 @@
 import React from "react"
-import { Container, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
-import { Flip } from 'react-reveal';
+import { Container, Row } from 'react-bootstrap';
 
 
 const Header = () => {
     return (
 
-        <section className="header flex  items-center">
+        <section className="header flex items-center">
 
             <Container>
                 <Row>
