@@ -5,15 +5,24 @@
 $mainColor: #f94;
 $secondaryColor: #2c2d25;
 $textColor: #fff;
+$borderColor: #e2e8f0;
+
+$breakExtraSmall: "580px";
+$breakSmall: "768px";
+$breakMedium: "1024px";
 
 /*MIXINS*/
 @mixin full-screen {
   width: 100wh;
   height: 100vh;
 }
-@mixin after-opacity($color){
+@mixin full-width($minHeight) {
+  width: 100%;
+  min-height: $minHeight;
+}
+@mixin after-opacity($color) {
   content: "";
-  background: $color ;
+  background: $color;
   position: absolute;
   top: 0;
   left: 0;
@@ -27,6 +36,7 @@ body,
 html {
   font-family: "Quicksand", sans-serif;
   overflow-x: hidden;
+  color: #363636;
 }
 
 button {
@@ -38,11 +48,17 @@ button {
     outline: none;
   }
 }
+.divider {
+  height: 1px;
+  margin: 10px 0;
+  border-bottom: 1px solid $borderColor;
+  display: block;
+}
 
 /*SESSOES*/
 .intro {
   @include full-screen();
-  background: no-repeat center/100% url(../assets/bg-intro.jpg);
+  background: no-repeat center/cover url(../assets/bg-intro.jpg);
   position: relative;
   display: flex;
   align-items: center;
@@ -50,22 +66,40 @@ button {
   flex-direction: column;
   color: $textColor;
   z-index: 1;
+  @media screen and (max-width: $breakSmall) {
+    text-align: center;
+  }
   .bounce {
     position: absolute;
     bottom: 50px;
     font-size: 30px;
     animation: bounce 1.5s ease-out infinite;
   }
-
-   h1 {
+  img {
+    @media screen and (max-width: $breakSmall) {
+      max-height: 200px;
+      margin: 10px auto;
+    }
+  }
+  h1 {
     font-size: 40px;
   }
   h3 {
     font-size: 100px;
     text-transform: uppercase;
+    color: $mainColor;
+    @media screen and (max-width: $breakSmall) {
+      font-size: 5em;
+    }
+    @media screen and (max-width: $breakExtraSmall) {
+      font-size: 3em;
+    }
   }
-   h5 {
+  h5 {
     font-size: 60px;
+    @media screen and (max-width: $breakExtraSmall) {
+      font-size: 2.5em;
+    }
   }
   > .ocean {
     height: 0;
@@ -96,21 +130,20 @@ button {
     }
   }
   &::after {
-   @include after-opacity(rgba(52, 152, 219, 0.7))
+    @include after-opacity(rgba(52, 152, 219, 0.7));
   }
 }
 
 .dashboard {
-  @include full-screen();
   z-index: 40;
   > .header {
     position: sticky;
-    min-height: 250px;
+    min-height: 220px;
     background: url(../assets/bg-weather.jpg) bottom center no-repeat $secondaryColor;
     background-size: cover;
     color: $textColor;
     &::after {
-      @include after-opacity(rgba(4, 9, 12, 0.7))
+      @include after-opacity(rgba(4, 9, 12, 0.7));
     }
     .local-hora {
       span {
@@ -119,6 +152,9 @@ button {
     }
     .temperatura {
       text-align: right;
+      @media screen and (max-width: $breakSmall) {
+        text-align: center;
+      }
       h1 {
         font-size: 80px;
         font-weight: 200;
@@ -128,22 +164,61 @@ button {
     .icon {
       text-align: center;
       p {
-   
-       background: rgba(4, 9, 12, 0.6);
-       border-radius: 10px;
-       padding: 5px;
+        background: rgba(4, 9, 12, 0.6);
+        border-radius: 10px;
+        padding: 5px;
       }
     }
     .other-info {
       text-align: left;
-        font-size: 20px;
-     
+      font-size: 20px;
+      @media screen and (max-width: $breakSmall) {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  > .tabs {
+    .react-tabs__tab-list {
+      @include full-width(auto);
+    }
+    .react-tabs__tab {
+      padding: 15px 15px 8px 15px;
+      text-align: center;
+      .date {
+        font-weight: bold;
+        line-height: 15px;
+      }
+      .img {
+        max-height: 30px;
+        display: inherit;
+        text-align: center;
+      }
+      .temperature {
+        font-size: 12px;
+        color: $mainColor;
+      }
+    }
+
+    .react-tabs__tab-panel {
+      margin-bottom: 50px;
+      .numbers {
+        .max {
+          h1 {
+            font-size: 90px;
+          }
+        }
+      }
     }
   }
 }
 
-
-
+.dataTables_filter {
+  float: right;
+}
+.pagination {
+  justify-content: flex-end;
+}
 
 /*ANIMAÇÕES*/
 
