@@ -14,19 +14,19 @@ const Intro = () => {
     return (
         <Fragment>
             <div className="intro">
-                <div class="ocean">
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                    <div class="wave"></div>
+                <div className="ocean">
+                    <div className="wave"></div>
+                    <div className="wave"></div>
+                    <div className="wave"></div>
                 </div>
                 <Container>
                     <Row>
-                        <Col xs={4}>
+                        <Col xs={12} md={4}>
                             <Flip bottom>
                                 <img src="assets/icon-intro.png" alt="Imagem de Introdução" />
                             </Flip>
                         </Col>
-                        <Col xs={8}>
+                        <Col xs={12} md={8}>
                             <Flip delay={200} bottom>
                                 <h1>Seja Bem Vindo ao</h1>
                             </Flip>
